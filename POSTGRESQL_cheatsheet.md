@@ -408,8 +408,47 @@ WHERE <column_name> = <value>;
 <br/><br/><br/>
 
 
+## Indexes
 
+##### The CREATE INDEX Command
+```sql
+CREATE INDEX index_name ON table_name;
+```
 
+##### Index Types
+PostgreSQL provides several index types: B-tree, Hash, GiST, SP-GiST and GIN. Each Index type uses a different algorithm that is best suited to different types of queries. By default, the CREATE INDEX command creates B-tree indexes, which fit the most common situations.
+
+##### Single-Column Indexes
+```sql
+CREATE INDEX index_name
+ON table_name (column_name);
+```
+
+##### Single-Column Indexes
+```sql
+CREATE INDEX index_name
+ON table_name (column1_name, column2_name);
+```
+
+##### Unique Indexes
+```sql
+CREATE INDEX index_name
+on table_name (conditional_expression);
+```
+
+##### Unique Indexes
+```sql
+CREATE UNIQUE INDEX index_name
+on table_name (column_name);
+```
+
+##### Implicit Indexes
+Indexes are automatically created for primary key constraints and unique constraints.
+
+##### The DROP INDEX Command
+```sql
+DROP INDEX index_name;
+```
 
 ## Scripting
 
@@ -479,22 +518,11 @@ http://www.postgresql.org/docs/current/static/sql-copy.html
 ```sql
 \copy <table_name>(<column_1>,<column_1>,<column_1>) FROM '<file_path>' CSV
 ```
-<br/><br/><br/>
-
-
-
-
 
 ## Debugging
 
 http://www.postgresql.org/docs/current/static/using-explain.html
-
 http://www.postgresql.org/docs/current/static/runtime-config-logging.html
-<br/><br/><br/>
-
-
-
-
 
 ## Advanced Features
 http://www.tutorialspoint.com/postgresql/postgresql_constraints.htm
