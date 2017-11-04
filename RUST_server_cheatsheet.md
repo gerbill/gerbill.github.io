@@ -1,22 +1,20 @@
-# RUST SERVER CHEATSHEET
-
-## Installation
+# RUST SERVER WITH MODS INSTALLATION AND MANAGEMENT
 
 These Rust Linux Server installation instructions are for Ubuntu 16.04 64-bit server (should probably work for Ubuntu version 12.04 or greater)
 
-#### System requirements
+## System requirements
 * RAM: 6 - 12GB
 * CPU: Choose CPU with most performace per each core. No point in many cores. A CPU with 4 powerful cores (3.5 - 4.5 Ghz) would work the best.
 * Bandwidth: 100 Mb/s should work fine. Ping should be minimal tho.
 * Hard drives: SSD is the only option for best performance.
 
-#### Install Dependencies
+## Install Dependencies
 ```bash
 sudo dpkg --add-architecture i386; sudo apt-get update;sudo apt-get install mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc tmux lib32gcc1 libstdc++6 libstdc++6:i386 lib32z1
 ```
 You may be asked to choose a mail server configuration. Choose "No configuration"
 
-#### Rust Server User
+## Rust Server User
 Create a user with password to run steam-realated and rust-related stuff. Running this stuff under root is a security risk!
 ```bash
 adduser rustserveruser
@@ -32,12 +30,12 @@ Change to this user home directory
 cd ~
 ```
 
-#### Download and run LGSM script
+## Download and run LGSM script
 ```bash
 wget -N --no-check-certificate https://gameservermanagers.com/dl/linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh rustserver
 ```
 
-#### Run the installer and follow the instructions
+## Run the installer and follow the instructions
 ```bash
 ./rustserver install
 ```
@@ -45,8 +43,8 @@ When it'll ask you about Server Directory - just hit ENTER
 
 When it'll ask you "Was the install successufl" - hit ENTER
 
-### Editing config files
-#### Edit common.cfg
+## Editing config files
+### Edit common.cfg
 Once installation is complete we have to change 2 cfg files with our settings
 
 Go to lgsm config directory
@@ -77,7 +75,7 @@ The default map is "Procedural Map". If you want to change it to "HapisIsland" f
 
 Once you've done editing common.cfg you need to save your changes by pressing Ctrl+O and then hitting ENTER. To quit nano editor type Ctrl+X
 
-#### Edit server.cfg
+### Edit server.cfg
 Now change directory to where server.cfg file located
 ```bash
 cd /home/rustserveruser/serverfiles/server/rustserver/cfg
@@ -93,7 +91,7 @@ Here you want to edit the following:
 
 Once done editing again type Ctrl+O to save the file and Ctrl+X to exit nano.
 
-#### Running the Rust Server
+## Running your Rust Server
 Change to rustserveruser home directory
 ```bash
 cd ~
@@ -115,7 +113,7 @@ Or restart it:
 ./rustserver restart
 ```
 
-#### Try playing at your server
+## Try playing at your server
 * log in to your Steam account in the Steam app
 * run Rust game
 * open console by pressing F1
@@ -125,7 +123,7 @@ client.connect 207.154.240.244:28015
 ```
 In a couple of minutes server should be present in Rust Community Server listing. You can search for your server by a part of its tytle at http://playrust.io
 
-#### Installing Oxide
+## Installing Oxide
 Navigate to your home directory
 ```bash
 cd ~
@@ -166,7 +164,7 @@ There you should change `"Modded": true` to `"Modded": false`.
 WARNING: if you do this to obviously modded server you may get your server blacklisted by FacePunch and not appear in servers list anymore.
 
 
-#### Installing and Managing Oxide Addons
+## Installing and Managing Oxide Addons
 * In order to install Oxide addons just put them into `/home/rustserveruser/serverfiles/oxide/plugins`. They will load automatically.
 * If you need to edit their configs, it will be located in `/home/rustserveruser/serverfiles/oxide/config`
 * If you updated an addon and wish to reload it without restarting the server you'll need to input it in an RCON tool (like RustAdmin). Once you've got it, run:
@@ -174,7 +172,7 @@ WARNING: if you do this to obviously modded server you may get your server black
 oxide.reload PluginName
 ```
 
-#### Possible problems and solutions
+## Possible problems and solutions
 Server takes about a minute to boot. So if you are getting "Disconnected" messages in the console when you try to log in, you should wait for about a minute or two. If you are still getting "Disconnected" messages this may mean that something is wrong with your installation. Search for logs in `/home/rustserveruser/log/server` folder and try googling any errors that might be there.
 
 
