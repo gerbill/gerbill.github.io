@@ -1,5 +1,7 @@
 # RUST SERVER WITH MODS INSTALLATION AND MANAGEMENT
 
+![Rust Server Installation Guide](https://i.imgur.com/6yl50jl.jpg)
+
 These Rust Linux Server installation instructions are for Ubuntu 16.04 64-bit server (should probably work for Ubuntu version 12.04 or greater)
 
 ## System requirements
