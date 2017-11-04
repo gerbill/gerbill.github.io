@@ -150,7 +150,7 @@ Now try starting your server again to see if Oxide had installed correctly
 ```bash
 ./rustserver start
 ```
-Check your logs in /home/rustserveruser/log/server directory to see if Oxide is loading properly.
+Check your logs in `/home/rustserveruser/log/server` directory to see if Oxide is loading properly.
 
 If a Rust update has been released, then an Oxide update will soon follow. To update Oxide, you can then run:
 ```bash
@@ -166,13 +166,16 @@ There you should change `"Modded": true` to `"Modded": false`.
 WARNING: if you do this to obviously modded server you may get your server blacklisted by FacePunch and not appear in servers list anymore.
 
 
-#### Installing Oxide Addons
-
-
-
+#### Installing and Managing Oxide Addons
+* In order to install Oxide addons just put them into `/home/rustserveruser/serverfiles/oxide/plugins`. They will load automatically.
+* If you need to edit their configs, it will be located in `/home/rustserveruser/serverfiles/oxide/config`
+* If you updated an addon and wish to reload it without restarting the server you'll need to input it in an RCON tool (like RustAdmin). Once you've got it, run:
+```bash
+oxide.reload PluginName
+```
 
 #### Possible problems and solutions
-Server takes about a minute to boot. So if you are getting "Disconnected" messages in the console when you try to log in, you should wait for about a minute or two. If you are still getting "Disconnected" messages this may mean that something is wrong with your installation. Search for logs in /home/rustserveruser/log/server folder and try googling any errors that might be there.
+Server takes about a minute to boot. So if you are getting "Disconnected" messages in the console when you try to log in, you should wait for about a minute or two. If you are still getting "Disconnected" messages this may mean that something is wrong with your installation. Search for logs in `/home/rustserveruser/log/server` folder and try googling any errors that might be there.
 
 
 
