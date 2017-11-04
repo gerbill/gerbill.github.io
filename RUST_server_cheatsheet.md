@@ -178,7 +178,27 @@ oxide.reload PluginName
 Server takes about a minute to boot. So if you are getting "Disconnected" messages in the console when you try to log in, you should wait for about a minute or two. If you are still getting "Disconnected" messages this may mean that something is wrong with your installation. Search for logs in `/home/rustserveruser/log/server` folder and try googling any errors that might be there.
 
 
+# Addons Management
+## PlayerReport
+[http://oxidemod.org/plugins/playerreport-gui.2635/](http://oxidemod.org/plugins/playerreport-gui.2635/)
 
+Allow default players to report their killers
+```bash
+oxide.grant group default playerreport.use
+```
+
+## Vanish (invisibility addon)
+[http://oxidemod.org/plugins/vanish.1420/](http://oxidemod.org/plugins/vanish.1420/)
+
+Allow admins to use /vanish command in chat to become invisible
+```bash
+oxide.grant group admin vanish.use
+```
+
+## AdminRadar
+[http://oxidemod.org/plugins/admin-radar.978/](http://oxidemod.org/plugins/admin-radar.978/)
+
+Allows admins to have a radar to help detect cheaters. Any admin can use /radar chat command to show AdminRadar pannel with options
 
 
 
