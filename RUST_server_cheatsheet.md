@@ -45,7 +45,8 @@ When it'll ask you about Server Directory - just hit ENTER
 
 When it'll ask you "Was the install successufl" - hit ENTER
 
-#### Changing config files
+### Editing config files
+#### Edit common.cfg
 Once installation is complete we have to change 2 cfg files with our settings
 
 Go to lgsm config directory
@@ -66,10 +67,53 @@ Now look through the lines under "Server Settings" header and change what you wa
 * Then you probably want to change Rust server title from "Rust" to "Your Awesome Server Name or Smth".
 * And change "maxplayers" if the default setting isn't enough for you.
 
+The default map is "Procedural Map". If you want to change it to "HapisIsland" for example, you have to do the following:
+* In the common.cfg file find "Server Start Command" header.
+* There you will see some thing like "+server.ip ${ip} +server.port ${port}" and so on. A long line like this.
+* Between "+server.ip ${ip}" and "+server.port ${port}" add the following:
+```bash
++server.level "HapisIsland"
+```
+
 Once you've done editing common.cfg you need to save your changes by pressing Ctrl+O and then hitting ENTER. To quit nano editor type Ctrl+X
 
+Now change directory to where server.cfg file located
+```bash
+cd /home/rustserveruser/serverfiles/server/rustserver/cfg
+```
+And edit it with nano editor
+```bash
+nano server.cfg
+```
+Here you want to edit the following:
+* Change default server description to what you need. Defaul server description is in the quotes and starts like "This is the defaul LinuxGSM server...". Change it you your liking. Use \n for new lines.
+* Edit server header image to a link of an image for your server (instead of a default link that starts with "https://raw.githubusercontent.com...".
+* Edit your server website.
 
+Once done editing again type Ctrl+O to save the file and Ctrl+X to exit nano.
 
+#### Running the Rust Server
+Change to rustserveruser home directory
+```bash
+cd ~
+```
+And finally start the server
+```bash
+./rustserver start
+```
+If everything is fine you should see the following:
+```bash
+[  OK  ] Starting rustserver: YourServerTitle
+```
+
+#### Log in to your server
+* log in to your Steam account in the Steam app
+* run Rust game
+* open console by pressing F1
+* in the console type (in this example I used 207.154.240.244 IP and 28015 port. You will have different IP. Port should still be 28015 unless you changed it in common.cfg)
+```bash
+client.connect 207.154.240.244:28015
+```
 
 
 
