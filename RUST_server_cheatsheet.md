@@ -106,7 +106,7 @@ If everything is fine you should see the following:
 [  OK  ] Starting rustserver: YourServerTitle
 ```
 
-#### Log in to your server
+#### Play at your server
 * log in to your Steam account in the Steam app
 * run Rust game
 * open console by pressing F1
@@ -114,7 +114,8 @@ If everything is fine you should see the following:
 ```bash
 client.connect 207.154.240.244:28015
 ```
-
+#### Possible problems and solutions
+Server takes about a minute to boot. So if you are getting "Disconnected" messages in the console when you try to log in, you should wait for about a minute or two. If you are still getting "Disconnected" messages this may mean that something is wrong with your installation. Search for logs in /home/rustserveruser/log/server folder and try googling any errors that might be there.
 
 
 
