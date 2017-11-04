@@ -125,7 +125,7 @@ client.connect 207.154.240.244:28015
 ```
 In a couple of minutes server should be present in Rust Community Server listing. You can search for your server by a part of its tytle at http://playrust.io
 
-#### Installing Oxide and mods
+#### Installing Oxide
 Navigate to your home directory
 ```bash
 cd ~
@@ -138,13 +138,37 @@ Run mods installing utility:
 ```bash
 ./rustserver mods-install
 ```
-Once its launched you should see: "Enter an addon/mod to install (or exit to abort):
+Once its launched you should see: `Enter an addon/mod to install (or exit to abort):`
 
 Type there:
 ```bash
 rustoxide
 ```
-And wait for it to finish installing. If installation is successful you should see: "Oxide for Rust installed"
+And wait for it to finish installing. If installation is successful you should see: `Oxide for Rust installed`
+
+Now try starting your server again to see if Oxide had installed correctly
+```bash
+./rustserver start
+```
+Check your logs in /home/rustserveruser/log/server directory to see if Oxide is loading properly.
+
+If a Rust update has been released, then an Oxide update will soon follow. To update Oxide, you can then run:
+```bash
+./rustserver mods-update
+```
+
+If you want your modded server (if its with Oxide installed it considered modded) to appear in community servers list you should edit oxide.config.json file:
+```bash
+nano /home/rustserveruser/serverfiles/oxide/oxide.config.json
+```
+There you should change `"Modded": true` to `"Modded": false`.
+
+WARNING: if you do this to obviously modded server you may get your server blacklisted by FacePunch and not appear in servers list anymore.
+
+
+#### Installing Oxide Addons
+
+
 
 
 #### Possible problems and solutions
