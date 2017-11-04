@@ -166,13 +166,32 @@ There you should change `"Modded": true` to `"Modded": false`.
 WARNING: if you do this to obviously modded server you may get your server blacklisted by FacePunch and not appear in servers list anymore.
 
 
-## Installing and Managing Oxide Addons
+## Installing and Updating Oxide Addons
 * In order to install Oxide addons just put them into `/home/rustserveruser/serverfiles/oxide/plugins`. They will load automatically.
 * If you need to edit their configs, it will be located in `/home/rustserveruser/serverfiles/oxide/config`
 * If you updated an addon and wish to reload it without restarting the server you'll need to input it in an RCON tool (like RustAdmin). Once you've got it, run:
 ```bash
 oxide.reload PluginName
 ```
+
+# Server Management
+Updating Rust server
+```bash
+./rustserver update
+```
+Validating Rust server
+```bash
+./rustserver validate
+```
+Wiping Rust server (change `w1pe` to `wipe` in the command below. Added a typo to avoid accidental wiping)
+```bash
+./rustserver w1pe
+```
+Updating Oxide
+```bash
+./rustserver mods-update
+```
+
 
 ## Possible problems and solutions
 Server takes about a minute to boot. So if you are getting "Disconnected" messages in the console when you try to log in, you should wait for about a minute or two. If you are still getting "Disconnected" messages this may mean that something is wrong with your installation. Search for logs in `/home/rustserveruser/log/server` folder and try googling any errors that might be there.
@@ -200,7 +219,8 @@ oxide.grant group admin vanish.use
 
 Allows admins to have a radar to help detect cheaters. Any admin can use /radar chat command to show AdminRadar pannel with options
 
-
+# Useful Links
+* [Most of the info of these instructions was taken from here (guide by UltimateByte)](http://oxidemod.org/threads/setting-up-a-linux-server-with-lgsm.16528/)
 
 
 
