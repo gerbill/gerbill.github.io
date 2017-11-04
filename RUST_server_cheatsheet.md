@@ -77,6 +77,7 @@ The default map is "Procedural Map". If you want to change it to "HapisIsland" f
 
 Once you've done editing common.cfg you need to save your changes by pressing Ctrl+O and then hitting ENTER. To quit nano editor type Ctrl+X
 
+#### Edit server.cfg
 Now change directory to where server.cfg file located
 ```bash
 cd /home/rustserveruser/serverfiles/server/rustserver/cfg
@@ -105,6 +106,14 @@ If everything is fine you should see the following:
 ```bash
 [  OK  ] Starting rustserver: YourServerTitle
 ```
+You can stop your Rust server with:
+```bash
+./rustserver stop
+```
+Or restart it:
+```bash
+./rustserver restart
+```
 
 #### Try playing at your server
 * log in to your Steam account in the Steam app
@@ -115,6 +124,27 @@ If everything is fine you should see the following:
 client.connect 207.154.240.244:28015
 ```
 In a couple of minutes server should be present in Rust Community Server listing. You can search for your server by a part of its tytle at http://playrust.io
+
+#### Installing Oxide and mods
+Navigate to your home directory
+```bash
+cd ~
+```
+Stop Rust server if its running
+```bash
+./rustserver stop
+```
+Run mods installing utility:
+```bash
+./rustserver mods-install
+```
+Once its launched you should see: "Enter an addon/mod to install (or exit to abort):
+
+Type there:
+```bash
+rustoxide
+```
+And wait for it to finish installing. If installation is successful you should see: "Oxide for Rust installed"
 
 
 #### Possible problems and solutions
