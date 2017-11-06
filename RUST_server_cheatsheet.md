@@ -219,6 +219,15 @@ oxide.grant group admin vanish.use
 
 Allows admins to have a radar to help detect cheaters. Any admin can use /radar chat command to show AdminRadar pannel with options
 
+## Night Vision
+
+[http://oxidemod.org/plugins/night-vision.2615/](http://oxidemod.org/plugins/night-vision.2615/)
+
+Allows admins to see everything as if it's day 24/7. To use type in chat `/nightvision`. To activate for admins type in server console:
+```bash
+oxide.grant group admin nightvision.allowed
+```
+
 # Useful Links
 * [Most of the info of these instructions was taken from here (guide by UltimateByte)](http://oxidemod.org/threads/setting-up-a-linux-server-with-lgsm.16528/)
 
