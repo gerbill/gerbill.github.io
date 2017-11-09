@@ -183,6 +183,11 @@ Validating Rust server
 ```bash
 ./rustserver validate
 ```
+Oxide update ([check if update is available](http://oxidemod.org/threads/release-build-changelog.18147/page-999))
+```bash
+./rustserver mods-update
+```
+
 Wiping Rust server (change `w1pe` to `wipe` in the command below. Added a typo to avoid accidental wiping)
 ```bash
 ./rustserver w1pe
