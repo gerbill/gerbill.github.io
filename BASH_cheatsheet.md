@@ -25,8 +25,12 @@ tar -xf archive.tar -C /target/directory
 du -hs /path/to/directory
 ```
 
-##### Get directory size without permission dinied errors
+##### Find a file without permission dinied errors
 ```bash
 find /home/projects/ -name "*part_of_a_filename*"  2>&1 | grep -v "Permission denied"
 ```
 
+##### Find a specific text inside files
+```bash
+grep -Ril "text-to-find-here" /path/to/folder/where/to/search
+```
