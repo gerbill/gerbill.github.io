@@ -2,7 +2,7 @@
 
 Here I add some useful python code snippets.
 
-#### Python files directory ####
+#### Get current directory of a python script ####
 ```python
 import os 
 dir_path = os.path.dirname(os.path.realpath(__file__))
