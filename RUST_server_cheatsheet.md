@@ -188,10 +188,12 @@ Oxide update ([check if update is available](http://oxidemod.org/threads/release
 ./rustserver mods-update
 ```
 
-Wiping Rust server (change `w1pe` to `wipe` in the command below. Added a typo to avoid accidental wiping)
+Wiping Rust server (change `w1pe` to `wipe` in the command below. Added a typo to avoid accidental wiping). THIS COMMAND WILL WIPE EVERYTHING! MAP AND BLUEPRINTS!
 ```bash
 ./rustserver w1pe
 ```
+To wipe only map objects and keep blueprints learned by players just delete the .sav file (make sure to back it up first). You can find this file by a path similar to: /home/rustserveruser/serverfiles/server/rustserver/hapisisland.4096.1458280756.153.sav
+
 Updating Oxide
 ```bash
 ./rustserver mods-update
