@@ -49,6 +49,7 @@ Once insede the nano editor type the following to exclude .idea, myvenv and __py
 myvenv/
 __pycache__/
 ```
+Now to save .gitignore file press Control+O and to exit nano editor press Control+X
 
 #### Create Django project
 While inside virtual environment myvenv (check if you see (myvenv) at the beginning of a terminal line) type:
