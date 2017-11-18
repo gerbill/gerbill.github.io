@@ -39,6 +39,17 @@ pip install django~=1.11.0
 #### Install Git (if haven't already)
 To install git for your system follow instructions on Git website: https://git-scm.com/. I also recommend creating a bitbucket account https://bitbucket.org/account/signup/ to create remote repositories there.
 
+Now create a .gitignore file inside your project directory:
+```bash
+nano .gitignore
+```
+Once insede the nano editor type the following to exclude .idea, myvenv and __pycache__ from being added to git:
+```bash
+.idea/
+myvenv/
+__pycache__/
+```
+
 #### Create Django project
 While inside virtual environment myvenv (check if you see (myvenv) at the beginning of a terminal line) type:
 ```bash
