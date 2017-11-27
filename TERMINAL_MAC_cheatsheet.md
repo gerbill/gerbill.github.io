@@ -5,6 +5,7 @@ _Letters are shown capitalized for readability only._  _Capslock should be off._
 
 | Key/Command | Description |
 | ----------- | ----------- |
+| Ctrl + Tab   | Switch between terminal tabs |
 | Ctrl + A   | Go to the beginning of the line you are currently typing on.  This also works for most text input fields system wide.  Netbeans being one exception |
 | Ctrl + E   | Go to the end of the line you are currently typing on.  This also works for most text input fields system wide.  Netbeans being one exception |
 | Ctrl + Q   | Clears everything on current line |
