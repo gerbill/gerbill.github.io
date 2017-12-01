@@ -62,7 +62,9 @@ Notice the . after the statement - it tells Django to install project files insi
 ## Integrate with Postgres
 Assuming you've got PostgreSQL already running on your machine
 
-Log in to psql
+### Prepare a database
+
+Get into psql in terminal
 ```bash
 psql
 ```
@@ -94,9 +96,53 @@ Exit psql
 \q
 ```
 
+### Install python postgres module
+```bash
+pip install psycopg2
+```
 
+### Configure django project settings to use PostgreSQL
+Open settings.py in editor. Change this code
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+```
+To this code
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'my_project_database',
+        'USER': 'my_project_user',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+```
 
+### Migrate the Database and Test your Project
 
+```bash
+python manage.py makemigrations
+```
+```bash
+python manage.py migrate
+```
 
+### Create SuperUser for your django project
 
+```bash
+python manage.py createsuperuser
+```
+Then you'll be asked a set of questions. Use strong password when asked for a password
 
+### Run a development server to test your project
+```bash
+python manage.py runserver 0.0.0.0:8000
+```
+Once your project is reachable through browser at http://localhost:8000 try going to http://localhost:8000/admin to see if django admin area works. You shojld be able to log in using credentials you set when you were creating a superuser.
