@@ -34,3 +34,29 @@ find /home/projects/ -name "*part_of_a_filename*"  2>&1 | grep -v "Permission de
 ```bash
 grep -Ril "text-to-find-here" /path/to/folder/where/to/search
 ```
+
+##### Set up RDP on a new Ubuntu VPS
+Create rdp.sh file
+```bash
+nano rdp.sh
+```
+Copy and paste this code in rdp.sh
+```bash
+apt-get update
+apt-get upgrade -y
+apt install mc -y
+apt install htop -y
+apt install xfce4 xfce4-goodies xorg dbus-x11 x11-xserver-utils -y
+apt install xrdp -y
+systemctl status xrdp
+adduser xrdp ssl-cert
+echo "address=0.0.0.0" >> /etc/xrdp/xrdp.ini
+apt-get install gnome-icon-theme-full tango-icon-theme
+echo xfce4-session >~/.xsession
+systemctl restart xrdp
+```
+Run rdp.sh using command
+```bash
+source rdp.sh
+```
+Don't go far, you will see a pink confirmation screen. Just hit ENTER when you see it
