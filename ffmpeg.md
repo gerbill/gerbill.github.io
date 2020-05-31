@@ -8,10 +8,10 @@ Add `-y` flag to overwrite output file if it already exists.
 ffprobe -i video.mov -show_entries format=duration -v quiet -of csv="p=0"
 ```
 
-### Output first N seconds oF a video
-In this case we output first 1000 seconds
+### Output a clip of input video
+In this case we output a clip that starts at 10 seconds and ends at 15 minutes 15 seconds of the input video
 ```bash
-ffmpeg -sseof -1000 -i input.mov output.mov
+ffmpeg -ss 00:00:10 -i input.mov -to 00:15:15 -c copy output.mov
 ```
 
 ### Concat video files
