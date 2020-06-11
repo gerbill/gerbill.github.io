@@ -15,5 +15,5 @@ As an example: start a WordPress container with a basic configuration
 ```bash
 docker run -d --name blog --expose 80 --net nginx-proxy -e VIRTUAL_HOST=blog.DOMAIN.TLD wordpress
 ```
-More info on https://github.com/nginx-proxy/nginx-proxy
+More info on https://github.com/nginx-proxy/nginx-proxy  
 For HTTPS check https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion
