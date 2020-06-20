@@ -17,3 +17,6 @@ docker run -d --name blog --expose 80 --net nginx-proxy -e VIRTUAL_HOST=blog.DOM
 ```
 More info on https://github.com/nginx-proxy/nginx-proxy  
 For HTTPS check https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion
+
+### Clean up and reclaim disk space used by docker
+https://domm.plix.at/perl/2020_06_docker_prune_volumes_by_label.html
