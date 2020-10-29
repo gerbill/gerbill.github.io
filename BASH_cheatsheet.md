@@ -1,5 +1,24 @@
 ## BASH useful commands
 
+##### Create a sudo user
+Log in as root.  
+Set and confirm the new user’s password at the prompt. A strong password is highly recommended!
+```bash
+adduser some_username
+```
+Use the usermod command to add the user to the sudo group.
+```bash
+usermod -aG sudo some_username
+```
+Use the su command to switch to the new user account.
+```bash
+su - some_username
+```
+Once logged in as some_username test out your sudo privileges by installing Midnight Commander!
+```bash
+sudo apt install mc
+```
+
 ##### Create a text file with no duplicate lines
 ```bash
 sort input.txt | uniq > output.txt
