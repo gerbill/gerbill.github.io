@@ -20,3 +20,10 @@ For HTTPS check https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-co
 
 ### Clean up and reclaim disk space used by docker
 https://domm.plix.at/perl/2020_06_docker_prune_volumes_by_label.html
+
+### Create new PostgreSQL container
+```bash
+docker run --name pgdb -e POSTGRES_PASSWORD=password -e POSTGRES_USER=user -e POSTGRES_DB=dbname -p 0.0.0.0:18731:5432 -d -v `pwd`/bot_pg:/var/lib/postgresql/data postgres
+```
+This will make your Postgres DB stick out in the open so use a strong password and change port! In this example I've used 18731 port. Feel free to pick any other non-obvious port. As for getting strong password - use https://gerbill.github.io/sha/ and take a good portion of a generated hash there. 30 symbols should be enough.
+
