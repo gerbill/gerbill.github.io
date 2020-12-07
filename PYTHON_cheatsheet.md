@@ -7,3 +7,8 @@ Here I add some useful python code snippets.
 import os 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 ```
+
+#### Upgrade pip in Windows venv
+```bash
+python -m pip install -U --force-reinstall pip
+```
