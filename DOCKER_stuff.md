@@ -27,3 +27,10 @@ docker run --name pgdb -e POSTGRES_PASSWORD=password -e POSTGRES_USER=user -e PO
 ```
 This will make your Postgres DB stick out in the open so use a strong password and change port! In this example I've used 18731 port. Feel free to pick any other non-obvious port. As for getting strong password - use https://gerbill.github.io/sha/ and take a good portion of a generated hash there. 30 symbols should be enough.
 
+
+### Create new Redis container
+```bash
+docker run -d -p 26379:6379 -v ~/my-redis:/data --name my-redis redis --requirepass 480f69c349f65332f47076099967c --appendonly yes
+```
+This will create Redis container named `my-redis` and with a volume with persistance AOF in your home directory: `/home/yourusername/my-redis`  
+Create strong password at [https://gerbill.github.io/sha/](https://gerbill.github.io/sha/) as your new `my-redis` container will be listening to outside connections on port `26379` (change this to less obvious number in the command above if you like)
