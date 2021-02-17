@@ -1,45 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Generate random SHA256 hash!</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
+  <head>
+    <title>Generate random SHA256 hash!</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
 
-      background-color: #EEE;
-      color: #222;
-      margin: 0;
-      padding: 0;
-    }
-    
-    #output {
-      width: 100%;
-      border-radius: 0px;
-      font-size: 2.2vw;
-    }
+        background-color: #eee;
+        color: #222;
+        margin: 0;
+        padding: 0;
+      }
 
-    #button {
-      width: 100%;
-      height: 100px;
-      font-size: 2.2em;
-      line-height: 2em;
-    }
+      #output {
+      }
 
-  </style>
-</head>
-<body>
-  <div>
-    <input id="button" type="button" value="New!" />
-    <input id="output" style="text-align: center">
-  </div>
-<script>
-function gen_sha () {
-  document.getElementById('output').value = sha256(new Date().getTime() * 86578);
-}
-document.addEventListener('DOMContentLoaded', gen_sha, false);
-document.getElementById('button').onclick = gen_sha;
-var sha256=function a(b){function c(a,b){return a>>>b|a<<32-b}for(var d,e,f=Math.pow,g=f(2,32),h="length",i="",j=[],k=8*b[h],l=a.h=a.h||[],m=a.k=a.k||[],n=m[h],o={},p=2;64>n;p++)if(!o[p]){for(d=0;313>d;d+=p)o[d]=p;l[n]=f(p,.5)*g|0,m[n++]=f(p,1/3)*g|0}for(b+="\x80";b[h]%64-56;)b+="\x00";for(d=0;d<b[h];d++){if(e=b.charCodeAt(d),e>>8)return;j[d>>2]|=e<<(3-d)%4*8}for(j[j[h]]=k/g|0,j[j[h]]=k,e=0;e<j[h];){var q=j.slice(e,e+=16),r=l;for(l=l.slice(0,8),d=0;64>d;d++){var s=q[d-15],t=q[d-2],u=l[0],v=l[4],w=l[7]+(c(v,6)^c(v,11)^c(v,25))+(v&l[5]^~v&l[6])+m[d]+(q[d]=16>d?q[d]:q[d-16]+(c(s,7)^c(s,18)^s>>>3)+q[d-7]+(c(t,17)^c(t,19)^t>>>10)|0),x=(c(u,2)^c(u,13)^c(u,22))+(u&l[1]^u&l[2]^l[1]&l[2]);l=[w+x|0].concat(l),l[4]=l[4]+w|0}for(d=0;8>d;d++)l[d]=l[d]+r[d]|0}for(d=0;8>d;d++)for(e=3;e+1;e--){var y=l[d]>>8*e&255;i+=(16>y?0:"")+y.toString(16)}return i};
-</script>
-</body>
+      .output-field {
+        width: 100%;
+        border-radius: 0px;
+        font-size: 2.2vw;
+        text-align: center;
+      }
+
+      .fields {
+        text-align: center;
+      }
+
+      #button {
+        width: 100%;
+        height: 100px;
+        font-size: 2.2em;
+        line-height: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input id="button" type="button" value="New!" />
+      <div class="fields">
+        <p>Hex:</p>
+        <input id="output" class="output-field" />
+        <p>Base32:</p>
+        <input id="output-base32" class="output-field" />
+      </div>
+    </div>
+    <script>
+      function gen_sha() {
+        var hash = sha256(new Date().getTime() * 86578);
+        if (hash.length % 2 !== 0) {
+          hash = "0" + hash;
+        }
+        var bytes = [];
+        for (var i = 0; i < hash.length; i = i + 2) {
+          bytes.push(parseInt(hash.slice(i, i + 2), 16));
+        }
+        var hash32 = encode(bytes);
+        document.getElementById("output").value = hash;
+        document.getElementById("output-base32").value = hash32;
+      }
+
+      document.addEventListener("DOMContentLoaded", gen_sha, false);
+      document.getElementById("button").onclick = gen_sha;
+
+      var sha256 = function a(b) {
+        function c(a, b) {
+          return (a >>> b) | (a << (32 - b));
+        }
+        for (
+          var d,
+            e,
+            f = Math.pow,
+            g = f(2, 32),
+            h = "length",
+            i = "",
+            j = [],
+            k = 8 * b[h],
+            l = (a.h = a.h || []),
+            m = (a.k = a.k || []),
+            n = m[h],
+            o = {},
+            p = 2;
+          64 > n;
+          p++
+        )
+          if (!o[p]) {
+            for (d = 0; 313 > d; d += p) o[d] = p;
+            (l[n] = (f(p, 0.5) * g) | 0), (m[n++] = (f(p, 1 / 3) * g) | 0);
+          }
+        for (b += "\x80"; (b[h] % 64) - 56; ) b += "\x00";
+        for (d = 0; d < b[h]; d++) {
+          if (((e = b.charCodeAt(d)), e >> 8)) return;
+          j[d >> 2] |= e << (((3 - d) % 4) * 8);
+        }
+        for (j[j[h]] = (k / g) | 0, j[j[h]] = k, e = 0; e < j[h]; ) {
+          var q = j.slice(e, (e += 16)),
+            r = l;
+          for (l = l.slice(0, 8), d = 0; 64 > d; d++) {
+            var s = q[d - 15],
+              t = q[d - 2],
+              u = l[0],
+              v = l[4],
+              w =
+                l[7] +
+                (c(v, 6) ^ c(v, 11) ^ c(v, 25)) +
+                ((v & l[5]) ^ (~v & l[6])) +
+                m[d] +
+                (q[d] =
+                  16 > d
+                    ? q[d]
+                    : (q[d - 16] +
+                        (c(s, 7) ^ c(s, 18) ^ (s >>> 3)) +
+                        q[d - 7] +
+                        (c(t, 17) ^ c(t, 19) ^ (t >>> 10))) |
+                      0),
+              x = (c(u, 2) ^ c(u, 13) ^ c(u, 22)) + ((u & l[1]) ^ (u & l[2]) ^ (l[1] & l[2]));
+            (l = [(w + x) | 0].concat(l)), (l[4] = (l[4] + w) | 0);
+          }
+          for (d = 0; 8 > d; d++) l[d] = (l[d] + r[d]) | 0;
+        }
+        for (d = 0; 8 > d; d++)
+          for (e = 3; e + 1; e--) {
+            var y = (l[d] >> (8 * e)) & 255;
+            i += (16 > y ? 0 : "") + y.toString(16);
+          }
+        return i;
+      };
+
+      var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+      var alias = { o: 0, i: 1, l: 1, s: 5 };
+
+      function Encoder() {
+        var skip = 0;
+        var bits = 0;
+
+        this.output = "";
+        this.readByte = function (byte) {
+          if (typeof byte == "string") byte = byte.charCodeAt(0);
+
+          if (skip < 0) {
+            bits |= byte >> -skip;
+          } else {
+            bits = (byte << skip) & 248;
+          }
+
+          if (skip > 3) {
+            skip -= 8;
+            return 1;
+          }
+
+          if (skip < 4) {
+            this.output += alphabet[bits >> 3];
+            skip += 5;
+          }
+
+          return 0;
+        };
+
+        this.finish = function (check) {
+          var output = this.output + (skip < 0 ? alphabet[bits >> 3] : "") + (check ? "$" : "");
+          this.output = "";
+          return output;
+        };
+      }
+
+      Encoder.prototype.update = function (input, flush) {
+        for (var i = 0; i < input.length; ) {
+          i += this.readByte(input[i]);
+        }
+        var output = this.output;
+        this.output = "";
+        if (flush) {
+          output += this.finish();
+        }
+        return output;
+      };
+
+      function encode(input) {
+        var encoder = new Encoder();
+        var output = encoder.update(input, true);
+        return output;
+      }
+    </script>
+  </body>
 </html>
