@@ -1,3 +1,13 @@
+# Store / remove GIT credentials
+Store
+```bash
+git config --global credential.helper store
+```
+Remove
+```bash
+git config --global credential.helper osxkeychain
+```
+
 # GIT commands Cheatsheet
 
 To INITialize a Git repository locally:
