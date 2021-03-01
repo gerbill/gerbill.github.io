@@ -24,3 +24,10 @@ file ./input_1.mov
 file ./input_2.mov
 file ./input_3.mov
 ```
+
+### Convert multiple videos in folder (for Windows)
+Open up power shell, then type `cmd`  
+Then paste
+```bash
+for %i in (*.mov) do ffmpeg -i "%i" -f webm -c:v libvpx -b:v 2M -acodec libvorbis -auto-alt-ref 0 "%~ni.webm" -hide_banner
+```
