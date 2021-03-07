@@ -1,6 +1,10 @@
 # Flutter & Dart
 
 ### Sample main.dart for Flutter project
+<details>
+  <summary>Click to expand!</summary>
+  
+
 Hot-Reload works
 ```dart
 import 'package:flutter/material.dart';
@@ -91,3 +95,4 @@ class MyApp extends StatelessWidget {
 ```
 Resulting app looks like this:  
 ![](https://i.imgur.com/QWOXAW4.png "Sample Flutter App created with the code obove")
+</details>
