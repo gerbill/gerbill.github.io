@@ -1,6 +1,7 @@
 # Flutter & Dart
 
 ### Sample main.dart for Flutter project
+Hot-Reload works
 ```dart
 import 'package:flutter/material.dart';
 
