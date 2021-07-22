@@ -13,3 +13,16 @@ logging.getLogger().addHandler(logging.StreamHandler())
 
 additional_data = {"Hello": "World!"}
 logging.info("Here's my awesome message with additional data: %s", additional_data)
+
+
+# Even better logging config to support utf-8 characters
+logging.basicConfig(
+    handlers=[
+        logging.FileHandler('/log/file/path/app.log', 'a', 'utf-8'),
+        logging.StreamHandler()
+    ],
+    format='%(asctime)s | %(pathname)s | %(levelname)s | %(message)s',
+    level=logging.INFO
+)
+
+logging.info("Ответ пользователю: %s | текст: %s", chat_id, bot_response)
