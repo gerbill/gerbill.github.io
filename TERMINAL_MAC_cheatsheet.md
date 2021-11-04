@@ -135,3 +135,15 @@ _Letters are shown capitalized for readability only._  _Capslock should be off._
 | man [command] |  Show the help manual for [command] |
 | whatis [command] | Gives a one-line description of [command] |
 | apropos [search-pattern] | Searches for command with keywords in description |
+
+
+## Git SSH
+Create keys
+```bash
+ssh-keygen -t rsa -b 4096
+```
+Print and copy pub key
+```bash
+cat id_rsa.pub
+```
+Paste this key into Github/Bitbucket
