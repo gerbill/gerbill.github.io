@@ -1,4 +1,4 @@
-# Squid Proxy Setup Steps
+# Squid Proxy Server Setup Steps
 
 
 ## (Optional) Update fresh Ubuntu installation
