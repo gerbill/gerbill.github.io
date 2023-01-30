@@ -97,3 +97,32 @@ func sendRequest(url string) int {
 	return bodyLength
 }
 ```
+
+## Log to file
+```go
+package main
+
+import (
+	"log"
+	"os"
+)
+
+const LOG_FILE_NAME = "app.log"
+
+func main() {
+	// Do some stuff
+	m := make(map[string]int)
+	m["someKey"] = 1
+	// Log something to file LOG_FILE_NAME
+	Lg("yo", "hello", "тест", m)
+}
+
+// Log to file
+func Lg(v ...any) {
+	file, _ := os.OpenFile(LOG_FILE_NAME, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
+	defer file.Close()
+	log.SetOutput(file)
+	log.Println(v...)
+}
+
+```
