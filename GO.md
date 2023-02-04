@@ -126,3 +126,22 @@ func Lg(v ...any) {
 }
 
 ```
+
+## Build Go App
+
+If on Windows use git-bash to have `env` command available  
+
+Build for Linux
+```bash
+env GOOS=linux GOARCH=amd64 go build .
+```
+
+Build for Windows  
+```bash
+env GOOS=windows GOARCH=amd64 go build .
+```
+
+Build for Mac
+```bash
+env GOOS=darwin GOARCH=amd64 go build .
+```
