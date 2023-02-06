@@ -145,3 +145,9 @@ Build for Mac
 ```bash
 env GOOS=darwin GOARCH=amd64 go build .
 ```
+
+## Last character of a string
+```go
+s := "Hello, 世界"
+log.Println(string([]rune(s)[len([]rune(s))-1]))  // 界
+```
